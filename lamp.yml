@@ -6,12 +6,15 @@
     - firewall
     - httpd
     #- php
-    - php55
+    #- php55
+    - php56
     - composer
     - drush
     - mariadb
     - aegir-user
     - aegir
+    - aegir-hosting-queued
 
   environment:
-    PATH: "/opt/rh/php55/root/usr/bin:/opt/rh/php55/root/usr/sbin:{{ lookup('env', 'PATH') }}"
+  #  PATH: "/opt/rh/php55/root/usr/bin:/opt/rh/php55/root/usr/sbin:{{ lookup('env', 'PATH') }}"
+    PATH: "/usr/local/bin/drush:{{ lookup('env', 'PATH') }}"
