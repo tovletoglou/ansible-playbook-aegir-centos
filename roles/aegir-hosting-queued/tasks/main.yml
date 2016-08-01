@@ -1,0 +1,20 @@
+# aegir-hosting-queued
+
+- name: Clear Drush cache for Provision extension
+  shell: drush --yes @hostmaster en hosting_queued
+  become: yes
+  become_user: aegir
+
+- name: hosting-queued.service
+  template:
+    src: hosting-queued.service.tpl
+    dest: /etc/systemd/system/hosting-queued.service
+    owner: root
+    group: root
+    mode: 0755
+
+- name: Set up hosting-queued
+  service: name=hosting-queued enabled=yes
+
+- name: Start the hosting-queued
+  service: name=hosting-queued state=started
