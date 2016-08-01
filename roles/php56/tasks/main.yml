@@ -1,0 +1,39 @@
+- name: Install Webtatic repo
+  yum:
+    name: "{{ webtatic_repo_url }}"
+    state: present
+
+- name: Import Webtatic GPG key
+  rpm_key:
+    key: "{{ webtatic_repo_gpg_key_url }}"
+    state: present
+
+- name: Install php56 from webtatic repository
+  yum:
+    pkg: "{{ php_modules }}"
+    state: latest
+    enablerepo: webtatic
+  when: ansible_os_family == "RedHat"
+  notify:
+    - restart httpd
+
+- name: Custom php.ini
+  template:
+    src: custom.php.ini.tpl
+    dest: "/etc/php.d/{{ custom_php_ini }}.php.ini"
+    owner: root
+    group: root
+    mode: 0664
+  when: create_custom_php_ini
+  notify:
+    - restart httpd
+
+# Add a test PHP page. Access it DOMAIN/phpinfo.php
+- name: Create test phpinfo.php
+  template:
+    src: phpinfo.php.tpl
+    dest: /var/www/html/phpinfo.php
+    owner: root
+    group: root
+    mode: 0664
+  when: create_phpinfo

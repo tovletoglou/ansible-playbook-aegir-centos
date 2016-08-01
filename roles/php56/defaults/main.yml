@@ -1,0 +1,30 @@
+# Create CUSTOM.php.ini
+create_custom_php_ini: true
+
+# Give the name you want for the CUSTOM.php.ini
+# Edit the php custom configuration in the php56/templates/custom.php.ini.tpl
+custom_php_ini: custom
+
+# Create DOAMIN/phpinfo.php test page
+create_phpinfo: true
+
+# Add or remove php packages
+php_modules:
+  - php56w
+  - php56w-cli
+  - php56w-common
+  - php56w-devel
+  - php56w-fpm
+  - php56w-gd
+  - php56w-ldap
+  - php56w-mbstring
+  - php56w-mcrypt
+  - php56w-mysqlnd
+  - php56w-pdo
+  - php56w-pear
+  - php56w-process
+  - php56w-xml
+
+# Do not edit
+webtatic_repo_url: "https://mirror.webtatic.com/yum/el7/webtatic-release.rpm"
+webtatic_repo_gpg_key_url: "/etc/pki/rpm-gpg/RPM-GPG-KEY-webtatic-el7"
