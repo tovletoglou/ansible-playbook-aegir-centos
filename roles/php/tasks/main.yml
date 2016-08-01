@@ -1,0 +1,31 @@
+- name: Install php
+  yum: pkg={{ item }} state=latest
+  with_items:
+    - php
+    - php-cli
+    - php-common
+    - php-gd
+    - php-ldap
+    - php-mysql
+    - php-pdo
+    - php-pear
+    - php-process
+    - php-xml
+
+- name: Custom aegir.php.ini
+  template:
+    src: aegir.php.ini.tpl
+    dest: /etc/php.d/aegir.php.ini
+    owner: root
+    group: root
+    mode: 0664
+  notify:
+    - restart httpd
+
+- name: Create test phpinfo.php
+  template:
+    src: phpinfo.php.tpl
+    dest: /var/www/html/phpinfo.php
+    owner: root
+    group: root
+    mode: 0664

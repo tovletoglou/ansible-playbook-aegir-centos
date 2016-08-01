@@ -1,0 +1,17 @@
+---
+
+- hosts: all
+  roles:
+    - basic
+    - firewall
+    - httpd
+    #- php
+    - php55
+    - composer
+    - drush
+    - mariadb
+    - aegir-user
+    - aegir
+
+  environment:
+    PATH: "/opt/rh/php55/root/usr/bin:/opt/rh/php55/root/usr/sbin:{{ lookup('env', 'PATH') }}"

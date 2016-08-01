@@ -1,0 +1,13 @@
+aegir_root: /var/aegir
+aegir_provision_version: 7.x-3.6
+aegir_provision_update: false
+aegir_user: aegir
+aegir_makefile_contents: "{{ lookup('file', aegir_makefile) }}"
+aegir_makefile: aegir.make
+aegir_platform_version: 7.x-3.6
+
+aegir_db_host: localhost
+aegir_db_user: aegir
+aegir_db_password: aegirdbpassword
+aegir_frontend_url: aegir.tovletoglou.gr
+aegir_client_email: tovletoglou@gmail.com

@@ -1,0 +1,90 @@
+# The Software Collections (SCL) Repository is an official Centos repository
+# loaded with all the new packages we need.
+# https://wiki.centos.org/AdditionalResources/Repositories/SCL
+#
+# In order to enable centos-release-scl you have to have enabled the CentOS
+
+- name: Install SCL centos-release-scl repository
+  yum: pkg={{ item }} state=latest
+  with_items:
+    - centos-release-scl
+    - centos-release-scl-rh
+
+# Centos 7 ships with PHP 5.4, but using the SCL repository we can install newer
+# PHP versions
+
+- name: Install php55
+  yum: pkg={{ item }} state=latest enablerepo=centos-sclo-rh
+  with_items:
+    - php55
+    - php55-build
+    - php55-php
+    - php55-php-cli
+    - php55-php-common
+    - php55-php-fpm
+    - php55-php-gd
+    - php55-php-ldap
+    - php55-php-mbstring
+    - php55-php-mysqlnd
+    - php55-php-pdo
+    - php55-php-pear
+    - php55-php-process
+    - php55-php-xml
+  when: ansible_os_family == "RedHat"
+  
+# The installations from the SCL comes with a down side. The packages are not
+# registered on the system and we should do it manually.
+#
+# Default configuration file: /opt/rh/php55/root/etc/php.ini
+# Loaded configuration:       /opt/rh/php55/root/etc/php.d
+#
+# TODO: Add: MANPATH=/opt/rh/php55/root/usr/share/man:${MANPATH}
+
+- name: Set php55 in $PATH
+  copy:
+    content: "export PATH=/opt/rh/php55/root/usr/bin:/opt/rh/php55/root/usr/sbin:$PATH"
+    dest: "/etc/profile.d/php55.sh"
+
+- name: Copy php55 config
+  copy:
+    src: /opt/rh/httpd24/root/etc/httpd/conf.d/php55-php.conf
+    dest: "{{ httpd_directory }}/conf.d/"
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Copy php55 modules configuration
+  copy:
+    src: /opt/rh/httpd24/root/etc/httpd/conf.modules.d/10-php55-php.conf
+    dest: "{{ httpd_directory }}/conf.modules.d/"
+    owner: root
+    group: root
+    mode: 0644
+
+- name: Copy php55 module
+  copy:
+    src: /opt/rh/httpd24/root/etc/httpd/modules/libphp55-php5.so
+    dest: "{{ httpd_directory }}/modules/"
+    owner: root
+    group: root
+    mode: 0755
+
+# Add custom PHP configuration on opt/rh/php55/root/etc/php.d/
+- name: Custom php.ini
+  template:
+    src: custom.php.ini.tpl
+    dest: "/opt/rh/php55/root/etc/php.d/{{ custom_php_ini }}.php.ini"
+    owner: root
+    group: root
+    mode: 0664
+  notify:
+    - restart httpd
+
+# Add a test PHP page. Access it DOMAIN/phpinfo.php
+- name: Create test phpinfo.php
+  template:
+    src: phpinfo.php.tpl
+    dest: /var/www/html/phpinfo.php
+    owner: root
+    group: root
+    mode: 0664
