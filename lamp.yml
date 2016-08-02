@@ -3,7 +3,8 @@
 - hosts: all
   roles:
     - system-initialize
-    - firewall
+    #- firewall
+    - firewalld
     - httpd
     #- php
     #- php55
@@ -16,5 +17,4 @@
     - aegir-hosting-queued
 
   environment:
-  #  PATH: "/opt/rh/php55/root/usr/bin:/opt/rh/php55/root/usr/sbin:{{ lookup('env', 'PATH') }}"
     PATH: "/usr/local/bin/drush:{{ lookup('env', 'PATH') }}"
