@@ -1,11 +1,20 @@
-# Create CUSTOM.php.ini
+# Update php every time you run this role (present | latest)
+yum_state: latest
+
+# Define if you are using a web server (true | false)
+php_webserver: true
+
+# Define your web server (httpd | nginx)
+webserver: httpd
+
+# Create CUSTOM.php.ini (true | false)
 create_custom_php_ini: true
 
 # Give the name you want for the CUSTOM.php.ini
 # Edit the php custom configuration in the php56/templates/custom.php.ini.tpl
 custom_php_ini: custom
 
-# Create DOAMIN/phpinfo.php test page
+# Create DOAMIN/phpinfo.php test page (true | false)
 create_phpinfo: true
 
 # Add or remove php packages

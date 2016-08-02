@@ -11,11 +11,10 @@
 - name: Install php56 from webtatic repository
   yum:
     pkg: "{{ php_modules }}"
-    state: latest
+    state: "{{ yum_state }}"
     enablerepo: webtatic
   when: ansible_os_family == "RedHat"
-  notify:
-    - restart httpd
+  register: webserver_restart_package
 
 - name: Custom php.ini
   template:
@@ -25,10 +24,8 @@
     group: root
     mode: 0664
   when: create_custom_php_ini
-  notify:
-    - restart httpd
+  register: webserver_restart_phpini
 
-# Add a test PHP page. Access it DOMAIN/phpinfo.php
 - name: Create test phpinfo.php
   template:
     src: phpinfo.php.tpl
@@ -37,3 +34,9 @@
     group: root
     mode: 0664
   when: create_phpinfo
+
+- name: restart webserver
+  service:
+    name: "{{ webserver }}"
+    state: restarted
+  when: ( webserver_restart_package.changed or webserver_restart_phpini.changed ) and php_webserver
