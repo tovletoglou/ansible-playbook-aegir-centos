@@ -1,4 +1,4 @@
-allow_url_fopen=Off
+allow_url_fopen=On
 allow_url_include=Off
 date.timezone = Europe/London
 display_errors=Off
