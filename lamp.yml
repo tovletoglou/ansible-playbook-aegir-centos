@@ -8,8 +8,8 @@
     #- php
     #- php55
     - php56
-    - composer
-    - drush
+    - ansible-role-composer
+    - ansible-role-drush
     - mariadb
     - aegir-user
     - aegir
