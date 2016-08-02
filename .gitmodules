@@ -6,4 +6,4 @@
 	url = https://github.com/geerlingguy/ansible-role-composer.git
 [submodule "roles/ansible-role-drush"]
 	path = roles/ansible-role-drush
-	url = https://github.com/geerlingguy/ansible-role-drush.git
+	url = https://github.com/tovletoglou/ansible-role-drush.git
