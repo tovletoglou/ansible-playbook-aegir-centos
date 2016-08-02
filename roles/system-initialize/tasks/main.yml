@@ -4,22 +4,20 @@
 - name: Update Yum
   yum: name=* state=latest
 
-- name: Install basic packages (git, curl, wget, etc.)
+- name: Install basic packages (curl, wget, etc.)
   yum: pkg={{ item }} state=latest
   with_items:
-    - git
-    - nano
     - curl
     - gcc
     - kernel-devel
     - libzip
-    - postfix
-    - wget
-    - vim
     - man
+    - postfix
     - unzip
+    - vim
+    - wget
 
-- name: Install extra packages (nano, tree etc.)
+- name: Install extra packages (nano, tree, etc.)
   yum: pkg={{ item }} state=latest
   with_items:
     - nano

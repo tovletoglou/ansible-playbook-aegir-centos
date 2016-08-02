@@ -2,7 +2,7 @@
 
 - hosts: all
   roles:
-    - basic
+    - system-initialize
     - firewall
     - httpd
     #- php
