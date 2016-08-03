@@ -1,6 +1,0 @@
-# Change the name you want for the CUSTOM.php.ini
-# Edit the php custom configuration in the php55/templates/custom.php.ini.tpl
-custom_php_ini: custom
-
-# Apache httpd location (without trailing slash)
-httpd_directory: /etc/httpd
