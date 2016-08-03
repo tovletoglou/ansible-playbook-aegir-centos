@@ -1,0 +1,20 @@
+---
+
+- name: Install {{ repository }} repo
+  yum:
+    name: "{{ item.repo_package }}"
+    state: present
+  with_items: "{{ repo_list }}"
+  when: item.name  == "{{ repository }}"
+
+- name: Import Webtatic GPG key
+  rpm_key:
+    key: "{{ item.repo_gpg_key_url }}"
+    state: present
+  with_items: "{{ repo_list }}"
+  when: item.name  == "{{ repository }}" and item.repo_gpg_key_url != ""
+
+- name: Debug repository: "{{ repository }}"
+  debug: msg="{{ item.name }}" verbosity=1
+  with_items: "{{ repo_list }}"
+  when: item.name  == "{{ repository }}"
