@@ -5,9 +5,7 @@
     - system-initialize
     - ansible-role-firewalld
     - httpd
-    #- php
-    #- php55
-    - php56
+    - ansible-role-php
     - ansible-role-composer
     - ansible-role-drush
     - mariadb
