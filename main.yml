@@ -2,7 +2,7 @@
 
 - hosts: all
   roles:
-    - system-initialize
+    - ansible-role-initialize
     - ansible-role-firewalld
     - httpd
     - ansible-role-php
