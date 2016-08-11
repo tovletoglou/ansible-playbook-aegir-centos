@@ -8,7 +8,7 @@
     - ansible-role-php
     - ansible-role-composer
     - ansible-role-drush
-    - mariadb
+    - ansible-role-mariadb
     - aegir-user
     - aegir
     - aegir-hosting-queued

@@ -16,3 +16,6 @@
 [submodule "roles/ansible-role-httpd"]
 	path = roles/ansible-role-httpd
 	url = https://github.com/tovletoglou/ansible-role-httpd.git
+[submodule "roles/ansible-role-mariadb"]
+	path = roles/ansible-role-mariadb
+	url = https://github.com/tovletoglou/ansible-role-mariadb.git
