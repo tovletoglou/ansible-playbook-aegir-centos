@@ -9,7 +9,7 @@
     - ansible-role-composer
     - ansible-role-drush
     - ansible-role-mariadb
-    - aegir-user
+    - ansible-role-user
     - aegir
     - aegir-hosting-queued
 

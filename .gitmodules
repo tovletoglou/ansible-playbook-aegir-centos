@@ -19,3 +19,6 @@
 [submodule "roles/ansible-role-mariadb"]
 	path = roles/ansible-role-mariadb
 	url = https://github.com/tovletoglou/ansible-role-mariadb.git
+[submodule "roles/ansible-role-user"]
+	path = roles/ansible-role-user
+	url = https://github.com/tovletoglou/ansible-role-user.git
