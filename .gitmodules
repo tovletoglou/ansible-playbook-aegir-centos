@@ -7,3 +7,6 @@
 [submodule "roles/ansible-role-php"]
 	path = roles/ansible-role-php
 	url = https://github.com/tovletoglou/ansible-role-php.git
+[submodule "roles/ansible-role-composer"]
+	path = roles/ansible-role-composer
+	url = https://github.com/tovletoglou/ansible-role-composer.git
