@@ -1,6 +1,7 @@
 ---
 
 - hosts: all
+  become: yes
   roles:
     - ansible-role-initialize
     - ansible-role-firewalld
@@ -12,6 +13,3 @@
     - ansible-role-user
     - aegir
     - aegir-hosting-queued
-
-  environment:
-    PATH: "/usr/local/bin/drush:{{ lookup('env', 'PATH') }}"
