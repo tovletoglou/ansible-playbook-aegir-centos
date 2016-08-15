@@ -6,11 +6,9 @@
   git:
     repo: http://git.drupal.org/project/provision.git
     dest: "{{ aegir_root }}/.drush/provision"
-    depth: 1 # speeds things up
+    depth: 1 # Speeds things up
     version: "{{ aegir_provision_version }}"
     update: "{{ aegir_provision_update }}"
-  #args:
-  #  creates: "{{ aegir_root }}/.drush/provision"
   become: yes
   become_user: "{{ aegir_user }}"
   #when: provision_folder.stat.isdir is not defined
@@ -19,6 +17,9 @@
   shell: drush @none cc drush
   become: yes
   become_user: "{{ aegir_user }}"
+  environment:
+    PATH: "{{ aegir_drush_path }}:{{ ansible_env.PATH }}"
+  changed_when: false # This will never report 'changed' status. But it will report 'ok', 'unreachable' or 'failed'
 
 - name: Write Hostmaster makefile from template
   copy:
@@ -33,6 +34,8 @@
     creates: "{{ aegir_root }}/hostmaster-{{ aegir_platform_version }}/"
   become: yes
   become_user: "{{ aegir_user }}"
+  environment:
+    PATH: "{{ aegir_drush_path }}:{{ ansible_env.PATH }}"
 
 - name: Create aegir db user
   mysql_user:
@@ -48,6 +51,8 @@
     creates: "{{ aegir_root }}/hostmaster-{{ aegir_platform_version }}/sites/{{ aegir_frontend_url }}/"
   become: yes
   become_user: "{{ aegir_user }}"
+  environment:
+    PATH: "{{ aegir_drush_path }}:{{ ansible_env.PATH }}"
 
 - file:
     src: /var/aegir/config/apache.conf
@@ -61,6 +66,8 @@
   shell: drush @hm cc drush && drush @hm hosting-task @hostmaster verify --force
   become: yes
   become_user: "{{ aegir_user }}"
+  environment:
+    PATH: "{{ aegir_drush_path }}:{{ ansible_env.PATH }}"
 
 - name: restart httpd
-  service: name=httpd state=restarted enabled=true
+  service: name=httpd state=restarted

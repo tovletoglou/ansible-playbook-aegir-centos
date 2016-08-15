@@ -1,10 +1,11 @@
 aegir_root: /var/aegir
 aegir_provision_version: 7.x-3.6
-aegir_provision_update: false
+aegir_provision_update: true
 aegir_user: aegir
 aegir_makefile_contents: "{{ lookup('file', aegir_makefile) }}"
 aegir_makefile: aegir.make
 aegir_platform_version: 7.x-3.6
+aegir_drush_path: /usr/local/bin
 
 aegir_db_host: localhost
 aegir_db_user: aegir
