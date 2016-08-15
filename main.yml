@@ -5,6 +5,7 @@
   roles:
     - ansible-role-initialize
     - ansible-role-firewalld
+    - ansible-role-git
     - ansible-role-httpd
     - ansible-role-php
     - ansible-role-composer
