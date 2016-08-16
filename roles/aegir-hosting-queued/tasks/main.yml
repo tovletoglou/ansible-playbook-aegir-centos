@@ -1,11 +1,13 @@
-# aegir-hosting-queued
+---
 
-- name: Clear Drush cache for Provision extension
+- name: Enable Hosting queued Aegir module
   shell: drush --yes @hostmaster en hosting_queued
   become: yes
   become_user: aegir
+  environment:
+    PATH: "{{ aegir_drush_path }}:{{ ansible_env.PATH }}"
 
-- name: hosting-queued.service
+- name: Copy the service template
   template:
     src: hosting-queued.service.tpl
     dest: /etc/systemd/system/hosting-queued.service
@@ -13,8 +15,8 @@
     group: root
     mode: 0755
 
-- name: Set up hosting-queued
-  service: name=hosting-queued enabled=yes
-
-- name: Start the hosting-queued
-  service: name=hosting-queued state=started
+- name: Setup and start hosting-queued
+  service:
+    name: hosting-queued
+    enabled: yes
+    state: started
