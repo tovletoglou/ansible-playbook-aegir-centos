@@ -1,5 +1,5 @@
 
-# Define Drush path, usually it's /usr/local/bin
+# Define Drush path, usually it's `/usr/local/bin`.
 aegir_drush_path: /usr/local/bin
 
 # Default Aegir directory, do not change.
@@ -9,9 +9,9 @@ aegir_root: /var/aegir
 aegir_user: aegir
 
 # Aegir provision version. It should be a stable release.
-aegir_provision_version: 7.x-3.6
+aegir_provision_version: 7.x-3.7
 
-# Aegir provision version. It should be the same with provision version.
+# Aegir provision version. It should be the same with provision version, do not change.
 aegir_platform_version: "{{ aegir_provision_version }}"
 
 # Every time we run this script, git will check for source updates.
@@ -21,9 +21,20 @@ aegir_provision_update: true
 aegir_makefile_contents: "{{ lookup('file', aegir_makefile) }}"
 aegir_makefile: aegir.make
 
-# Aegir front end configuration.
+# Database server, usually `localhost`.
 aegir_db_host: localhost
+
+# Database user, usually `aegir`.
 aegir_db_user: aegir
-aegir_db_password: aegirdbpassword
-aegir_frontend_url: vagrant.dev
-aegir_client_email: tovletoglou@gmail.com
+
+# Database {{ aegir_db_user }} password.
+# TODO: add to Ansible Vault.
+aegir_db_password: AEGIR_DB_PASSWORD_CHANGE_ME
+
+# Aegir front-end URL.
+# TODO: add to Ansible Vault.
+aegir_frontend_url: SUBDOMAIN.DOMAIN.TLD
+
+# Aegir admin email.
+# TODO: add to Ansible Vault.
+aegir_client_email: ADMIN_EMAIL@DOMAIN.TLD
