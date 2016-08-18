@@ -15,7 +15,7 @@ aegir_provision_version: 7.x-3.7
 aegir_platform_version: "{{ aegir_provision_version }}"
 
 # Every time we run this script, git will check for source updates.
-aegir_provision_update: true
+aegir_provision_update: false
 
 # TODO: replace with tpl file
 aegir_makefile_contents: "{{ lookup('file', aegir_makefile) }}"
