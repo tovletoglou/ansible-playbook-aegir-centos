@@ -1,4 +1,3 @@
-
 # Define Drush path, usually it's `/usr/local/bin`.
 aegir_drush_path: /usr/local/bin
 
@@ -28,13 +27,10 @@ aegir_db_host: localhost
 aegir_db_user: aegir
 
 # Database {{ aegir_db_user }} password.
-# TODO: add to Ansible Vault.
-aegir_db_password: AEGIR_DB_PASSWORD_CHANGE_ME
+aegir_db_password: AEGIR_DB_PASSWORD
 
 # Aegir front-end URL.
-# TODO: add to Ansible Vault.
 aegir_frontend_url: SUBDOMAIN.DOMAIN.TLD
 
 # Aegir admin email.
-# TODO: add to Ansible Vault.
 aegir_client_email: ADMIN_EMAIL@DOMAIN.TLD
