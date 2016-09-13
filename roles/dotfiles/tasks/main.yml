@@ -1,0 +1,15 @@
+- name: Clone dot files
+  git:
+    repo: http://github.com/tovletoglou/dotfiles.git
+    dest: "/tmp/dotfiles"
+    update: yes
+
+- name: Copy dot files
+  copy:
+    src: /tmp/dotfiles/
+    dest: "{{ item.dest }}"
+    owner: "{{ item.owner }}"
+    group: "{{ item.group }}"
+  with_items:
+    - { dest: '/root', owner: 'root', group: 'root' }
+    - { dest: '/var/aegir', owner: 'aegir', group: 'aegir' }
