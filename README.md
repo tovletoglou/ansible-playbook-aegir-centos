@@ -6,8 +6,6 @@ Tested CentOS 7
 
 ## Get started
 
-If you came here and you have no idea where to start and **the only think you worry is PHP 5.6 on Centos 7**  select the following commands and paste it on your terminal.
-
     # Install EPEL repository (need it for ansible)
     sudo yum install -y epel-release
     # Install Ansible
