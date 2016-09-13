@@ -18,6 +18,6 @@ If you came here and you have no idea where to start and **the only think you wo
     sudo echo "localhost ansible_connection=local" >> /etc/ansible/hosts
     
     # Clone this project (it's an ansible playbook)
-    git clone https://github.com/tovletoglou/ansible-playbook-aegir-centos.git ~/ansible-playbook-aegir-centos
+    git clone --recursive https://github.com/tovletoglou/ansible-playbook-aegir-centos.git ~/ansible-playbook-aegir-centos
     # Run the playbook
     ansible-playbook ~/ansible-playbook-aegir-centos/main.yml
