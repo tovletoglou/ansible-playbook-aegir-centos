@@ -1,6 +1,6 @@
 - name: Clone dot files
   git:
-    repo: http://github.com/tovletoglou/dotfiles.git
+    repo: "{{ dotfile_repo }}"
     dest: "/tmp/dotfiles"
     update: no
 

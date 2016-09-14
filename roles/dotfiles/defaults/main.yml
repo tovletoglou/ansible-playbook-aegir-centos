@@ -1,3 +1,5 @@
+dotfile_repo: http://github.com/tovletoglou/dotfiles.git
+
 dotfile_users:
   root:
     dest: /root
