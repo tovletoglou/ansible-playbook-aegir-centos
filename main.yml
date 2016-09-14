@@ -12,8 +12,8 @@
     - ansible-role-drush
     - ansible-role-mariadb
     - ansible-role-user
-    - aegir
-    - aegir-hosting-queued
+    - ansible-role-aegir
+    - ansible-role-aegir-hosting-queued
     - ansible-role-dotfiles
   vars:
     aegir_db_password: AEGIR_DB_PASSWORD
