@@ -1,0 +1,7 @@
+dotfile_users:
+  root:
+    dest: /root
+    owner: root
+    group: root
+    gitname: GIT_ROOT_NAME
+    gitmail: ROOT@EMAIL

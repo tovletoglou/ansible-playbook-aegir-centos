@@ -19,3 +19,16 @@
     aegir_db_password: AEGIR_DB_PASSWORD
     aegir_frontend_url: SUBDOMAIN.DOMAIN.TLD
     aegir_client_email: ADMIN_EMAIL@DOMAIN.TLD
+    dotfile_users:
+      root:
+        dest: /root
+        owner: root
+        group: root
+        gitname: GIT_ROOT_NAME
+        gitmail: ROOT@EMAIL
+      aegir:
+        dest: /var/aegir
+        owner: aegir
+        group: aegir
+        gitname: GIT_AEGIR_NAME
+        gitmail: AEGIR@EMAIL
