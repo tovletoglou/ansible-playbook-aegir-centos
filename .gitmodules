@@ -28,3 +28,6 @@
 [submodule "roles/ansible-role-dotfiles"]
 	path = roles/ansible-role-dotfiles
 	url = https://github.com/tovletoglou/ansible-role-dotfiles.git
+[submodule "roles/ansible-role-aegir"]
+	path = roles/ansible-role-aegir
+	url = https://github.com/tovletoglou/ansible-role-aegir.git
