@@ -14,7 +14,7 @@
     - ansible-role-user
     - aegir
     - aegir-hosting-queued
-    - dotfiles
+    - ansible-role-dotfiles
   vars:
     aegir_db_password: AEGIR_DB_PASSWORD
     aegir_frontend_url: SUBDOMAIN.DOMAIN.TLD
