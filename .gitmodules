@@ -31,3 +31,6 @@
 [submodule "roles/ansible-role-aegir"]
 	path = roles/ansible-role-aegir
 	url = https://github.com/tovletoglou/ansible-role-aegir.git
+[submodule "roles/ansible-role-aegir-hosting-queued"]
+	path = roles/ansible-role-aegir-hosting-queued
+	url = https://github.com/tovletoglou/ansible-role-aegir-hosting-queued.git
