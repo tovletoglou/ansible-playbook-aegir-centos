@@ -21,7 +21,7 @@
     aegir_frontend_url: SUBDOMAIN.DOMAIN.TLD
     aegir_client_email: ADMIN_EMAIL@DOMAIN.TLD
     user_passwordless_sudo: true
-    user_authorized_keys: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}
+    user_authorized_keys: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
     dotfile_users:
       root:
         dest: /root
