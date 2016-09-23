@@ -1,36 +1,48 @@
 [submodule "roles/ansible-role-firewalld"]
 	path = roles/ansible-role-firewalld
 	url = https://github.com/tovletoglou/ansible-role-firewalld.git
+  branch = master
 [submodule "roles/ansible-role-drush"]
 	path = roles/ansible-role-drush
 	url = https://github.com/tovletoglou/ansible-role-drush.git
+  branch = master
 [submodule "roles/ansible-role-php"]
 	path = roles/ansible-role-php
 	url = https://github.com/tovletoglou/ansible-role-php.git
+  branch = master
 [submodule "roles/ansible-role-composer"]
 	path = roles/ansible-role-composer
 	url = https://github.com/tovletoglou/ansible-role-composer.git
+  branch = master
 [submodule "roles/ansible-role-initialize"]
 	path = roles/ansible-role-initialize
 	url = https://github.com/tovletoglou/ansible-role-initialize.git
+  branch = master
 [submodule "roles/ansible-role-httpd"]
 	path = roles/ansible-role-httpd
 	url = https://github.com/tovletoglou/ansible-role-httpd.git
+  branch = master
 [submodule "roles/ansible-role-mariadb"]
 	path = roles/ansible-role-mariadb
 	url = https://github.com/tovletoglou/ansible-role-mariadb.git
+  branch = master
 [submodule "roles/ansible-role-user"]
 	path = roles/ansible-role-user
 	url = https://github.com/tovletoglou/ansible-role-user.git
+  branch = master
 [submodule "roles/ansible-role-git"]
 	path = roles/ansible-role-git
 	url = https://github.com/tovletoglou/ansible-role-git.git
+  branch = master
 [submodule "roles/ansible-role-dotfiles"]
 	path = roles/ansible-role-dotfiles
 	url = https://github.com/tovletoglou/ansible-role-dotfiles.git
+  branch = master
 [submodule "roles/ansible-role-aegir"]
 	path = roles/ansible-role-aegir
 	url = https://github.com/tovletoglou/ansible-role-aegir.git
+  branch = master
 [submodule "roles/ansible-role-aegir-hosting-queued"]
 	path = roles/ansible-role-aegir-hosting-queued
 	url = https://github.com/tovletoglou/ansible-role-aegir-hosting-queued.git
+  branch = master
