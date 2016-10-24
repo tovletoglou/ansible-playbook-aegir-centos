@@ -3,4 +3,9 @@
 - hosts: db
   become: yes
   roles:
-    - ansible-role-galera
+    - ansible-role-mariadb
+  vars:
+    mariadb_install_from_centos: false
+    mysql_root_password: rootdbpassword
+    mariadb_my_cnf_configuration: true
+    mariadb_galera_configuration: true
