@@ -1,0 +1,22 @@
+---
+
+- hosts: all
+  become: yes
+  roles:
+    - ansible-role-initialize
+    - ansible-role-git
+    - ansible-role-dotfiles
+  vars:
+    dotfile_users:
+      root:
+        dest: /root
+        owner: root
+        group: root
+        gitname: GIT_ROOT_NAME
+        gitmail: ROOT@EMAIL
+      vagrant:
+        dest: /home/vagrant
+        owner: vagrant
+        group: vagrant
+        gitname: GIT_AEGIR_NAME
+        gitmail: AEGIR@EMAIL
