@@ -1,6 +1,6 @@
 ---
 
-- hosts: db
+- hosts: db-1
   become: yes
   roles:
     - ansible-role-mariadb
@@ -9,3 +9,35 @@
     mysql_root_password: rootdbpassword
     mariadb_my_cnf_configuration: true
     mariadb_galera_configuration: true
+    galera_wsrep_cluster_address: gcomm://
+    galera_wsrep_cluster_name: galera
+    galera_wsrep_node_address: 192.168.33.11
+    galera_wsrep_node_name: galera1
+
+- hosts: db-2
+  become: yes
+  roles:
+    - ansible-role-mariadb
+  vars:
+    mariadb_install_from_centos: false
+    mysql_root_password: rootdbpassword
+    mariadb_my_cnf_configuration: true
+    mariadb_galera_configuration: true
+    galera_wsrep_cluster_address: gcomm://192.168.33.11
+    galera_wsrep_cluster_name: galera
+    galera_wsrep_node_address: 192.168.33.12
+    galera_wsrep_node_name: galera2
+
+- hosts: db-3
+  become: yes
+  roles:
+    - ansible-role-mariadb
+  vars:
+    mariadb_install_from_centos: false
+    mysql_root_password: rootdbpassword
+    mariadb_my_cnf_configuration: true
+    mariadb_galera_configuration: true
+    galera_wsrep_cluster_address: gcomm://192.168.33.11
+    galera_wsrep_cluster_name: galera
+    galera_wsrep_node_address: 192.168.33.13
+    galera_wsrep_node_name: galera3
