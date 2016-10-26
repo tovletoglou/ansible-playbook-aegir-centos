@@ -17,7 +17,7 @@ Tested CentOS 7
     
     # Clone this project (it's an ansible playbook)
     git clone --recursive https://github.com/tovletoglou/ansible-playbook-aegir-centos.git ~/ansible-playbook-aegir-centos
-    # Edit the default variables in the `main.yml`
-    vi ~/ansible-playbook-aegir-centos/main.yml
+    # Edit the default variables in the `playbook_full_stack_aegir.yml`
+    vi ~/ansible-playbook-aegir-centos/playbook_full_stack_aegir.yml
     # Run the playbook
-    ansible-playbook ~/ansible-playbook-aegir-centos/main.yml
+    ansible-playbook ~/ansible-playbook-aegir-centos/playbook_full_stack_aegir.yml
