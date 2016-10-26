@@ -1,0 +1,7 @@
+[ansible]
+ansible.dev
+
+[db]
+galera1.dev
+galera2.dev
+galera3.dev
