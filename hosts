@@ -5,3 +5,6 @@ ansible.dev
 galera1.dev
 galera2.dev
 galera3.dev
+
+[haproxy]
+haproxy.dev
