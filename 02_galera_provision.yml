@@ -3,6 +3,7 @@
 - hosts: db
   become: yes
   roles:
+    - ansible-role-firewalld
     - ansible-role-mariadb
   vars:
     mariadb_install_from_centos: false

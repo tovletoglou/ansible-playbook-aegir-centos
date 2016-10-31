@@ -1,0 +1,39 @@
+---
+
+firewalld_rules:
+  ssh:
+    port: 22
+    protocol: tcp
+    state: enabled
+    zone: public
+    permanent: true
+  mysql_client_connections:
+    port: 3306
+    protocol: tcp
+    state: enabled
+    zone: public
+    permanent: true
+  galera_cluster_replication_traffic:
+    port: 4567
+    protocol: tcp
+    state: enabled
+    zone: public
+    permanent: true
+  rsync:
+    port: 873
+    protocol: tcp
+    state: enabled
+    zone: public
+    permanent: true
+  state_snapshot_transfer:
+    port: 4444
+    protocol: tcp
+    state: enabled
+    zone: public
+    permanent: true
+  xinetd:
+    port: 9200
+    protocol: tcp
+    state: enabled
+    zone: public
+    permanent: true
