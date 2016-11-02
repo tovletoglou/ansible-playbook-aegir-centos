@@ -46,3 +46,6 @@
 	path = roles/ansible-role-aegir-hosting-queued
 	url = https://github.com/tovletoglou/ansible-role-aegir-hosting-queued.git
 	branch = master
+[submodule "roles/ansible-role-yum-repos"]
+	path = roles/ansible-role-yum-repos
+	url = https://github.com/tovletoglou/ansible-role-yum-repos.git
