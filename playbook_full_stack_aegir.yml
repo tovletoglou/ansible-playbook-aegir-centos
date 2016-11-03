@@ -35,9 +35,11 @@
     - ansible-role-mariadb
   vars:
     mysql_root_password: "MYSQL_ROOT_PASSWORD"
-    aegir_db_password: "AEGIR_DB_PASSWORD"
-    aegir_frontend_url: SUBDOMAIN.DOMAIN.TLD
-    aegir_client_email: ADMIN_EMAIL@DOMAIN.TLD
+    mariadb_install_from_centos: false
+    mariadb_my_cnf_configuration: true
+    mariadb_galera_configuration: true
+    galera_wsrep_cluster_address: gcomm://192.168.33.11,192.168.33.12,192.168.33.13
+    galera_wsrep_cluster_name: galera
 
 - hosts: webserver
   become: yes
@@ -76,6 +78,8 @@
   vars:
     mysql_root_password: MYSQL_ROOT_PASSWORD
     aegir_db_password: AEGIR_DB_PASSWORD
+    mariadb_install_from_centos: false
+    mariadb_my_cnf_configuration: true
     aegir_frontend_url: SUBDOMAIN.DOMAIN.TLD
     aegir_client_email: ADMIN_EMAIL@DOMAIN.TLD
     user_passwordless_sudo: true
