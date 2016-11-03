@@ -8,10 +8,20 @@ haproxy.dev
 [ansible]
 ansible.dev
 
-[db]
+[haproxy]
+haproxy.dev
+
+[galera]
 galera1.dev
 galera2.dev
 galera3.dev
 
-[haproxy]
-haproxy.dev
+[webserver]
+aegir1.dev
+aegir2.dev
+aegir3.dev
+
+[aegir]
+aegir1.dev
+aegir2.dev
+aegir3.dev

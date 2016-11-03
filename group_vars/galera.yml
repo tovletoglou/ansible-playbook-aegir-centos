@@ -1,5 +1,11 @@
 ---
 
+mysql_root_password: "MYSQL_ROOT_PASSWORD"
+mariadb_install_from_centos: false
+mariadb_my_cnf_configuration: true
+mariadb_galera_configuration: true
+galera_wsrep_cluster_address: gcomm://192.168.33.11,192.168.33.12,192.168.33.13
+galera_wsrep_cluster_name: galera
 firewalld_rules:
   ssh:
     port: 22

@@ -1,0 +1,7 @@
+---
+
+mysql_root_password: "MYSQL_ROOT_PASSWORD"
+aegir_db_password: "AEGIR_DB_PASSWORD"
+aegir_frontend_url: SUBDOMAIN.DOMAIN.TLD
+aegir_client_email: ADMIN_EMAIL@DOMAIN.TLD
+user_passwordless_sudo: true
