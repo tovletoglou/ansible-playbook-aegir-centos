@@ -4,8 +4,67 @@
   become: yes
   roles:
     - ansible-role-initialize
-    - ansible-role-firewalld
+    - ansible-role-yum-repos
     - ansible-role-git
+    - ansible-role-dotfiles
+  vars:
+    dotfile_users:
+      - {
+          name: root,
+          dest: /root,
+          gitname: GIT_ROOT_NAME,
+          gitmail: ROOT@EMAIL
+        }
+      - {
+          name: vagrant,
+          dest: /home/vagrant,
+          gitname: GIT_VAGRANT_NAME,
+          gitmail: VAGRANT@EMAIL
+        }
+      - {
+          name: aegir,
+          dest: /var/aegir,
+          gitname: GIT_AEGIR_NAME,
+          gitmail: AEGIR@EMAIL
+        }
+
+- hosts: galera
+  become: yes
+  roles:
+    - ansible-role-firewalld
+    - ansible-role-mariadb
+  vars:
+    mysql_root_password: "MYSQL_ROOT_PASSWORD"
+    aegir_db_password: "AEGIR_DB_PASSWORD"
+    aegir_frontend_url: SUBDOMAIN.DOMAIN.TLD
+    aegir_client_email: ADMIN_EMAIL@DOMAIN.TLD
+
+- hosts: webserver
+  become: yes
+  roles:
+    - ansible-role-firewalld
+    - ansible-role-httpd
+    - ansible-role-php
+    - ansible-role-composer
+    - ansible-role-drush
+
+- hosts: aegir
+  become: yes
+  roles:
+    - ansible-role-user
+    - ansible-role-aegir
+    - ansible-role-aegir-hosting-queued
+  vars:
+    mysql_root_password: "MYSQL_ROOT_PASSWORD"
+    aegir_db_password: "AEGIR_DB_PASSWORD"
+    aegir_frontend_url: SUBDOMAIN.DOMAIN.TLD
+    aegir_client_email: ADMIN_EMAIL@DOMAIN.TLD
+    user_passwordless_sudo: true
+
+- hosts: fullstack
+  become: yes
+  roles:
+    - ansible-role-firewalld
     - ansible-role-httpd
     - ansible-role-php
     - ansible-role-composer
@@ -14,24 +73,10 @@
     - ansible-role-user
     - ansible-role-aegir
     - ansible-role-aegir-hosting-queued
-    - ansible-role-dotfiles
   vars:
     mysql_root_password: MYSQL_ROOT_PASSWORD
     aegir_db_password: AEGIR_DB_PASSWORD
     aegir_frontend_url: SUBDOMAIN.DOMAIN.TLD
     aegir_client_email: ADMIN_EMAIL@DOMAIN.TLD
     user_passwordless_sudo: true
-    user_authorized_keys: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
-    dotfile_users:
-      root:
-        dest: /root
-        owner: root
-        group: root
-        gitname: GIT_ROOT_NAME
-        gitmail: ROOT@EMAIL
-      aegir:
-        dest: /var/aegir
-        owner: aegir
-        group: aegir
-        gitname: GIT_AEGIR_NAME
-        gitmail: AEGIR@EMAIL
+    #user_authorized_keys: "{{ lookup('file', '/root/.ssh/id_rsa.pub') }}"
