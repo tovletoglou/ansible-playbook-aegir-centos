@@ -1,6 +1,6 @@
 ---
 
-- hosts: all
+- hosts: vagrant
   become: yes
   roles:
     - ansible-role-initialize
@@ -26,19 +26,38 @@
 - hosts: aegir
   become: yes
   roles:
+    - ansible-role-firewalld
+    - ansible-role-mariadb
     - ansible-role-user
     - ansible-role-aegir
     - ansible-role-aegir-hosting-queued
 
+# `fullstack` is a live hosts where I do various test. It is not included in the
+# [vagrant blueprint](https://github.com/tovletoglou/vagrant-multi-vm)
+#
+# Execute: `ansible-playbook -i hosts_custom playbook_full_stack_aegir.yml --ask-vault-pass`
+#
+# File: `hosts_custom` is an ansible hosts file looks like:
+#
+#     [fullstack]
+#     real.domain.tld ansible_ssh_user=real_linux_user
+#
+# File: `group_vars/fullstack.yml` contains the variable used for this environment.
+#
+# These two files are encrypted using the `ansible-vault`.
 - hosts: fullstack
   become: yes
   roles:
+    - ansible-role-initialize
+    - ansible-role-yum-repos
+    - ansible-role-git
+    - ansible-role-dotfiles
     - ansible-role-firewalld
+    - ansible-role-mariadb
     - ansible-role-httpd
     - ansible-role-php
     - ansible-role-composer
     - ansible-role-drush
-    - ansible-role-mariadb
     - ansible-role-user
     - ansible-role-aegir
     - ansible-role-aegir-hosting-queued

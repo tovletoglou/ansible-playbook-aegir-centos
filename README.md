@@ -20,4 +20,4 @@ Run the playbook
 
 Run the playbook using ansible vault
 
-    ansible-playbook -i hosts_ansible playbook_full_stack_aegir.yml --ask-vault-pass
+    ansible-playbook -i hosts_custom playbook_full_stack_aegir.yml --ask-vault-pass

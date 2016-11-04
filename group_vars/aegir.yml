@@ -1,7 +1,11 @@
 ---
 
-mysql_root_password: "MYSQL_ROOT_PASSWORD"
-aegir_db_password: "AEGIR_DB_PASSWORD"
-aegir_frontend_url: SUBDOMAIN.DOMAIN.TLD
-aegir_client_email: ADMIN_EMAIL@DOMAIN.TLD
+mysql_root_password: "MYSQL_ROOT_PASSWORD_ON_AEGIR_SERVER"
+mariadb_install_from_centos: true
+mariadb_my_cnf_configuration: true
+mariadb_galera_configuration: false
 user_passwordless_sudo: true
+aegir_db_password: "MYSQL_AEGIR_USER_PASSWORD"
+aegir_frontend_url: aegir.dev
+aegir_client_email: admin@aegir.dev
+

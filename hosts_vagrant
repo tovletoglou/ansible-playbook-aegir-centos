@@ -4,6 +4,7 @@ galera1.dev
 galera2.dev
 galera3.dev
 haproxy.dev
+aegir.dev
 
 [ansible]
 ansible.dev
@@ -17,11 +18,10 @@ galera2.dev
 galera3.dev
 
 [webserver]
-aegir1.dev
-aegir2.dev
-aegir3.dev
+web1.dev
+web2.dev
+web3.dev
+aegir.dev
 
 [aegir]
-aegir1.dev
-aegir2.dev
-aegir3.dev
+aegir.dev
