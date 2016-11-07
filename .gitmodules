@@ -49,3 +49,4 @@
 [submodule "roles/ansible-role-yum-repos"]
 	path = roles/ansible-role-yum-repos
 	url = https://github.com/tovletoglou/ansible-role-yum-repos.git
+	branch = master
