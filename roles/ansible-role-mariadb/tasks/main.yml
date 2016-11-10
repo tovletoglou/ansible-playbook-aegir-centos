@@ -1,0 +1,20 @@
+---
+
+- name: Install MariaDB from `updates` Centos repository
+  include: mariadb-install-from-centos.yml
+  when: mariadb_install_from_centos
+
+- name: Install MariaDB from `mariadb` repository
+  include: mariadb-install-from-mariadb.yml
+  when: not mariadb_install_from_centos
+
+- name: Configure MariaDB (root password, my.cnf, anonymous users, etc)
+  include: mariadb-initial-configuration.yml
+
+- name: Include custom my.cnf configuration
+  include: mariadb-my-cnf-configuration.yml
+  when: mariadb_my_cnf_configuration
+
+- name: Include galera configuration
+  include: mariadb-galera-configuration.yml
+  when: mariadb_galera_configuration
