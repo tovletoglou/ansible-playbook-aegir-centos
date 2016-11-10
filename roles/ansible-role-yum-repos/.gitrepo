@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/tovletoglou/ansible-role-yum-repos.git
+	branch = master
+	commit = 99a3f087b3f495ecb232cf3c2090cefb571ad691
+	parent = 13c140ae8363ae011eace9ee1380bf1b24e2c492
+	cmdver = 0.3.0
