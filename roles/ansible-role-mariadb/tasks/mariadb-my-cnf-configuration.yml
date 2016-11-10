@@ -1,0 +1,41 @@
+---
+
+- name: Edit master my.cnf (max_allowed_packet)
+  ini_file:
+    dest: /etc/my.cnf
+    section: mysqld
+    option: max_allowed_packet
+    value: 64M
+    backup: yes
+  notify:
+    - restart mariadb
+
+- name: Edit master my.cnf (innodb_large_prefix)
+  ini_file:
+    dest: /etc/my.cnf
+    section: mysqld
+    option: innodb_large_prefix
+    value: true
+    backup: yes
+  notify:
+    - restart mariadb
+
+- name: Edit master my.cnf (innodb_file_format)
+  ini_file:
+    dest: /etc/my.cnf
+    section: mysqld
+    option: innodb_file_format
+    value: barracuda
+    backup: yes
+  notify:
+    - restart mariadb
+
+- name: Edit master my.cnf (innodb_file_per_table)
+  ini_file:
+    dest: /etc/my.cnf
+    section: mysqld
+    option: innodb_file_per_table
+    value: true
+    backup: yes
+  notify:
+    - restart mariadb

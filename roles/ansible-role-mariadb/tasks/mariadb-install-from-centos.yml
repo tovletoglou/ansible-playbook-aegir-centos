@@ -1,0 +1,10 @@
+---
+
+- name: Install MariaDB from Centos repository
+  yum:
+    name: "{{ item }}"
+    state: latest
+  with_items:
+    - mariadb
+    - mariadb-server
+    - MySQL-python

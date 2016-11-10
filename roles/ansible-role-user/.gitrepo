@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/tovletoglou/ansible-role-user.git
+	branch = master
+	commit = c991608fd6e4c3a3a32dfbdfb2d6986aab7f8998
+	parent = 54d94ff2abf02b22f2ee8032104992aa111beae7
+	cmdver = 0.3.0

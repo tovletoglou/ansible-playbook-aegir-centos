@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/tovletoglou/ansible-role-mariadb.git
+	branch = master
+	commit = 64701969287b173b72cd52ceb8b3063886b1db58
+	parent = b24b5a0b495c8fd4bb59ac6224bfda16b2998f3b
+	cmdver = 0.3.0
