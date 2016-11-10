@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/tovletoglou/ansible-role-aegir-hosting-queued.git
+	branch = master
+	commit = 67d18dc5742f6a0c85ebb09d5e731aa4b3967f1c
+	parent = 2d9edb605fa7634631a6957ddf3ea16b637dddd9
+	cmdver = 0.3.0
