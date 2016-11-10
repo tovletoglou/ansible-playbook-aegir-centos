@@ -1,0 +1,11 @@
+; DO NOT EDIT (unless you know what you are doing)
+;
+; This subdirectory is a git "subrepo", and this file is maintained by the
+; git-subrepo command. See https://github.com/git-commands/git-subrepo#readme
+;
+[subrepo]
+	remote = https://github.com/tovletoglou/ansible-role-composer.git
+	branch = master
+	commit = 38032cb87228cb602f621267c7f18c05e9bd946f
+	parent = 8c1989ad1ea47271dc149a505caf36edb3a5bf2c
+	cmdver = 0.3.0
