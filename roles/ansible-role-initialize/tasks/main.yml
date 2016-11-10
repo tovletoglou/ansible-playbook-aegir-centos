@@ -1,0 +1,17 @@
+---
+
+- name: Disable SELinux
+  selinux:
+    state: "{{ initialize_selinux }}"
+
+- name: Install basic packages
+  yum:
+    name: "{{ item }}"
+    state: present
+  with_items: "{{ initialize_packages }}"
+
+- name: Update Yum
+  yum:
+    name: "*"
+    state: latest
+  when: initialize_yum_update
