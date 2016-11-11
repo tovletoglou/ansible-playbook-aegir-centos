@@ -6,6 +6,6 @@
 [subrepo]
 	remote = https://github.com/tovletoglou/ansible-role-dotfiles.git
 	branch = master
-	commit = 8fba38abafe40a5c53892774ed3651dc8a9dbb55
-	parent = 21f07c3625a34874f989dfbcbaf9f4176350ab4a
+	commit = 727b00507040fc0e6b63be38dab26162abf8c9d7
+	parent = 5ab516e769213ff699ca5c7e2136b91907c1b564
 	cmdver = 0.3.0

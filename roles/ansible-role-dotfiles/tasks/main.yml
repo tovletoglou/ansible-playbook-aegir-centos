@@ -10,6 +10,7 @@
     repo: "{{ dotfile_repo }}"
     dest: "{{ item.dest }}/dotfiles"
     update: "{{ dotfile_update }}"
+    force: yes
   when: "'{{ item.name }}' in system_users.stdout_lines"
   with_items: "{{ dotfile_users }}"
 
