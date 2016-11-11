@@ -6,6 +6,6 @@
 [subrepo]
 	remote = https://github.com/tovletoglou/ansible-role-aegir-hosting-queued.git
 	branch = master
-	commit = 67d18dc5742f6a0c85ebb09d5e731aa4b3967f1c
-	parent = 2d9edb605fa7634631a6957ddf3ea16b637dddd9
+	commit = e211a6d0348d88a6e23ff8cf85227d7edd038640
+	parent = 6e91d5a1cd9ec7a8619e589227ecea205f412beb
 	cmdver = 0.3.0
