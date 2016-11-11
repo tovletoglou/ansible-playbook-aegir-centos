@@ -1,5 +1,8 @@
 # Ignore files and folders for GIT
 
+# Python
+*.pyc
+
 # Ansible
 *.retry
 
