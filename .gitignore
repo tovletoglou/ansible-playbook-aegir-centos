@@ -1,5 +1,8 @@
 # Ignore files and folders for GIT
 
+# Ansible roles (fetch them as different projects managed by ansible)
+roles/
+
 # Python
 *.pyc
 
