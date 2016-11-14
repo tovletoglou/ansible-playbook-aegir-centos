@@ -1,0 +1,21 @@
+---
+
+dotfile_users:
+  - {
+      name: root,
+      dest: /root,
+      gitname: GIT_ROOT_NAME,
+      gitmail: ROOT@EMAIL
+    }
+  - {
+      name: vagrant,
+      dest: /home/vagrant,
+      gitname: GIT_VAGRANT_NAME,
+      gitmail: VAGRANT@EMAIL
+    }
+  - {
+      name: aegir,
+      dest: /var/aegir,
+      gitname: GIT_AEGIR_NAME,
+      gitmail: AEGIR@EMAIL
+    }

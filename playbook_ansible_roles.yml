@@ -1,0 +1,22 @@
+---
+
+- hosts: ansible
+  tasks:
+    - name: Clone roles in the ansible playbook
+      git:
+        repo: "https://github.com/tovletoglou/{{ item }}.git"
+        dest: "/home/vagrant/ansible-playbook-aegir-centos/roles/{{ item }}"
+      with_items:
+        - ansible-role-aegir-hosting-queued
+        - ansible-role-aegir
+        - ansible-role-composer
+        - ansible-role-dotfiles
+        - ansible-role-drush
+        - ansible-role-firewalld
+        - ansible-role-git
+        - ansible-role-httpd
+        - ansible-role-initialize
+        - ansible-role-mariadb
+        - ansible-role-php
+        - ansible-role-user
+        - ansible-role-yum-repos
