@@ -1,0 +1,75 @@
+---
+
+- name: Create array with users
+  shell: "cut -d: -f1 /etc/passwd"
+  register: system_users
+  changed_when: false # This will never report 'changed' status. But it will report 'ok', 'unreachable' or 'failed'
+
+- name: Clone dot files
+  git:
+    repo: "{{ dotfile_repo }}"
+    dest: "{{ item.dest }}/dotfiles"
+    update: "{{ dotfile_update }}"
+    force: yes
+  when: "'{{ item.name }}' in system_users.stdout_lines"
+  with_items: "{{ dotfile_users }}"
+
+- name: Check owner, group of the dotfiles directory
+  file:
+    path: "{{ item.dest }}/dotfiles"
+    state: directory
+    recurse: yes
+    owner: "{{ item.name }}"
+    group: "{{ item.name }}"
+  when: "'{{ item.name }}' in system_users.stdout_lines"
+  with_items: "{{ dotfile_users }}"
+
+# All ~/dotfiles directories contain the same information (cloned from the same
+# repo). We are creating `template_dir` variable as a place holder, based on
+# the last entry of `dotfile_users`, in order to create the file list.
+- name: Set fact with dot files from directory
+  set_fact: template_dir="{{ item.dest }}/dotfiles/.*"
+  when: "'{{ item.name }}' in system_users.stdout_lines"
+  with_items: "{{ dotfile_users }}"
+
+# We create the variable `destination_key` only to use it as an ansible_facts
+# key on the variable we resister `directory_result`.
+- name: Set fact with dot files from directory
+  set_fact: destination_key="{{ item }}"
+  with_fileglob:
+    - "{{ template_dir }}"
+  register: directory_result
+
+# Now we create an array with the dot files defined above.
+# We filter the results with the key `destination_key`
+- name: Create array with dot files
+  set_fact: dot_file_list="{{ directory_result.results | map(attribute='ansible_facts.destination_key') | list }}"
+
+- name: Create links for dot files on home directory
+  file:
+    src: "{{ item[1].dest }}/dotfiles/{{ item[0] | basename }}"
+    dest: "{{ item[1].dest }}/{{ item[0] | basename }}"
+    owner: "{{ item[1].name }}"
+    group: "{{ item[1].name }}"
+    state: link
+    force: yes
+  when: "'{{ item[1].name }}' in system_users.stdout_lines"
+  with_nested:
+    - "{{ dot_file_list }}"
+    - "{{ dotfile_users }}"
+
+- name: Replace git name
+  replace:
+    dest: "{{ item.dest }}/dotfiles/.gitconfig"
+    regexp: "name = *.*"
+    replace: "name = {{ item.gitname }}"
+  when: "'{{ item.name }}' in system_users.stdout_lines"
+  with_items: "{{ dotfile_users }}"
+
+- name: Replace git email
+  replace:
+    dest: "{{ item.dest }}/dotfiles/.gitconfig"
+    regexp: "email = *.*"
+    replace: "email = {{ item.gitmail }}"
+  when: "'{{ item.name }}' in system_users.stdout_lines"
+  with_items: "{{ dotfile_users }}"
