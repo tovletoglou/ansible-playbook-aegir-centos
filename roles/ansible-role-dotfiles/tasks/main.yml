@@ -28,22 +28,14 @@
 # repo). We are creating `template_dir` variable as a place holder, based on
 # the last entry of `dotfile_users`, in order to create the file list.
 - name: Set fact with dot files from directory
-  set_fact: template_dir="{{ item.dest }}/dotfiles/.*"
+  set_fact: template_dir="{{ item.dest }}/dotfiles/"
   when: "'{{ item.name }}' in system_users.stdout_lines"
   with_items: "{{ dotfile_users }}"
 
-# We create the variable `destination_key` only to use it as an ansible_facts
-# key on the variable we resister `directory_result`.
-- name: Set fact with dot files from directory
-  set_fact: destination_key="{{ item }}"
-  with_fileglob:
-    - "{{ template_dir }}"
-  register: directory_result
-
-# Now we create an array with the dot files defined above.
-# We filter the results with the key `destination_key`
-- name: Create array with dot files
-  set_fact: dot_file_list="{{ directory_result.results | map(attribute='ansible_facts.destination_key') | list }}"
+- name: Create the array with dot files
+  shell: ls -aF {{ template_dir }} |  grep "^\." | grep -v '[/@=|]$'
+  register: dot_file_list
+  changed_when: false # This will never report 'changed' status. But it will report 'ok', 'unreachable' or 'failed'
 
 - name: Create links for dot files on home directory
   file:
@@ -55,7 +47,7 @@
     force: yes
   when: "'{{ item[1].name }}' in system_users.stdout_lines"
   with_nested:
-    - "{{ dot_file_list }}"
+    - "{{ dot_file_list.stdout_lines }}"
     - "{{ dotfile_users }}"
 
 - name: Replace git name
