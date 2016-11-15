@@ -11,6 +11,7 @@
         - ansible-role-aegir
         - ansible-role-composer
         - ansible-role-dotfiles
+        - ansible-role-drupalconsole
         - ansible-role-drush
         - ansible-role-firewalld
         - ansible-role-git

@@ -22,6 +22,7 @@
     - ansible-role-php
     - ansible-role-composer
     - ansible-role-drush
+    - ansible-role-drupalconsole
 
 - hosts: aegir
   become: yes
