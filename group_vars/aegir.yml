@@ -8,4 +8,7 @@ user_passwordless_sudo: true
 aegir_db_password: "MYSQL_AEGIR_USER_PASSWORD"
 aegir_frontend_url: aegir.dev
 aegir_client_email: admin@aegir.dev
-
+drupal_console_keep_updated: true
+drupal_console_config:
+  - vagrant
+  - aegir

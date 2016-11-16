@@ -1,0 +1,6 @@
+---
+
+drupal_console_keep_updated: true
+drupal_console_config:
+  - vagrant
+  - aegir

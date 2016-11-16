@@ -32,6 +32,7 @@
     - ansible-role-user
     - ansible-role-aegir
     - ansible-role-aegir-hosting-queued
+    - ansible-role-drupalconsole
 
 # `fullstack` is a live hosts where I do various test. It is not included in the
 # [vagrant blueprint](https://github.com/tovletoglou/vagrant-multi-vm)
