@@ -3,11 +3,14 @@
 # Ansible roles (fetch them as different projects managed by ansible)
 roles/
 
+# Ansible log file
+ansible.log
+
+# Ansible playbook retry
+*.retry
+
 # Python
 *.pyc
-
-# Ansible
-*.retry
 
 # IDE PHPstorm files
 .idea
