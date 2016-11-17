@@ -24,7 +24,7 @@
     - ansible-role-drush
     - ansible-role-drupalconsole
 
-- hosts: aegir
+- hosts: hostmaster
   become: yes
   roles:
     - ansible-role-firewalld
