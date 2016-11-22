@@ -23,6 +23,10 @@
     - ansible-role-composer
     - ansible-role-drush
     - ansible-role-drupalconsole
+  vars:
+    drupal_console_keep_updated: true
+    drupal_console_config:
+      - vagrant
 
 - hosts: hostmaster
   become: yes
