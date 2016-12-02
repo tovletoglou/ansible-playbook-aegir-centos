@@ -4,15 +4,21 @@ mysql_root_password: "MYSQL_ROOT_PASSWORD_ON_AEGIR_SERVER"
 mariadb_install_from_centos: true
 mariadb_my_cnf_configuration: true
 mariadb_galera_configuration: false
+
 user_passwordless_sudo: true
-aegir_db_password: "MYSQL_AEGIR_USER_PASSWORD"
+#user_authorized_keys: "{{ lookup('file', '~/.ssh/id_rsa.pub') }}"
+#user_authorized_keys: https://github.com/user.keys
+
 aegir_frontend_url: aegir.dev
 aegir_host_url: aegir.dev
+aegir_db_password: "MYSQL_AEGIR_USER_PASSWORD"
 aegir_client_email: admin@aegir.dev
+
 drupal_console_keep_updated: true
 drupal_console_config:
   - vagrant
   - aegir
+
 dotfile_users:
   - {
       name: root,

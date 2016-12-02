@@ -1,0 +1,15 @@
+---
+
+- hosts: webserver
+  become: yes
+  roles:
+    - ansible-role-firewalld
+    - ansible-role-httpd
+    - ansible-role-php
+    - ansible-role-composer
+    - ansible-role-drush
+    - ansible-role-drupalconsole
+  vars:
+    drupal_console_keep_updated: true
+    drupal_console_config:
+      - vagrant
