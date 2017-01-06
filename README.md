@@ -6,29 +6,55 @@ For more information about the Vagrant machines see [vagrant-multi-vm](https://g
 
 ## Requirements
 
-Tested CentOS 7
+Tested on CentOS 7
 
 ## Get started
 
-Clone this project
+1. Clone this project
 
-    git clone https://github.com/tovletoglou/ansible-playbook-aegir-centos.git
+  ```
+  git clone https://github.com/tovletoglou/ansible-playbook-aegir-centos.git
+  ```
 
-Run the playbook `playbook_ansible_roles.yml`. This one will get all the roles and put them in roles/ sub-directory (roles are not uploaded to ansible galaxy yet).
+2. Run the playbook `playbook_ansible.yml`. It will get all the roles and put them in `roles/ansible-role-name` (TODO: add roles ansible galaxy).
 
-    ansible-playbook -i hosts_vagrant playbook_ansible_roles.yml
+  ```
+  ansible-playbook -i hosts_vagrant playbook_ansible.yml
+  ```
 
-Run the actual playbook `playbook_full_stack_aegir` in order to provision the servers.
+3. Run the playbook `playbook_vagrant` to initialize the servers.
 
-    ansible-playbook -i hosts_vagrant playbook_full_stack_aegir.yml
+  ```
+  ansible-playbook -i hosts_vagrant playbook_vagrant.yml
+  ```
 
-Run the playbook against physical testing servers `hosts_custom` using ansible vault.
+4. Run the playbook `playbook_webserver` to setup the web servers.
 
-    ansible-vault decrypt hosts_custom
-    ansible-playbook -i hosts_custom playbook_full_stack_aegir.yml --ask-vault-pass
+  ```
+  ansible-playbook -i hosts_vagrant playbook_webserver.yml
+  ```
 
-## Developer information
+5. Run the playbook `playbook_hostmaster` to setup Aegir.
+
+  ```
+  ansible-playbook -i hosts_vagrant playbook_hostmaster.yml
+  ```
+
+If you like to run the playbooks against physical testing servers use the `hosts_test` using ansible vault.
+
+```
+ansible-vault decrypt hosts_test
+ansible-playbook -i hosts_test playbook_full_stack_aegir.yml --ask-vault-pass
+```
+
+## Extra info
+
+### git-subrepo
 
 The sub-directories in the `callback_plugins` folder are git projects integrated with the [git-subrepo](https://github.com/ingydotnet/git-subrepo). You can recognize them by the `.gitrepo` file.
 
 Do not commit changes of the sub-projects on the main project.
+
+### galera
+
+The `playbook_galera.yml` is working but doesn't used by Aegir.
