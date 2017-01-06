@@ -58,3 +58,7 @@ Do not commit changes of the sub-projects on the main project.
 ### galera
 
 The `playbook_galera.yml` is working but doesn't used by Aegir.
+
+### git_check_status.sh
+
+The `git_check_status.sh` is a bash script used to check the `git status` for the roles (as sub-projects)
