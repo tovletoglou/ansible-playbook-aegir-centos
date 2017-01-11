@@ -3,8 +3,8 @@
 - hosts: webserver:test
   become: yes
   roles:
-    - ansible-role-firewalld
     - ansible-role-httpd
+    - ansible-role-firewalld
     - ansible-role-php
     - ansible-role-composer
     - ansible-role-drush
