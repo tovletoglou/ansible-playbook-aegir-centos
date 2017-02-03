@@ -23,9 +23,7 @@ aegir_modules_disable:
   - help
 
 drupal_console_keep_updated: true
-drupal_console_config:
-  - vagrant
-  - aegir
+drupal_console_config: false
 
 dotfile_users:
   - {
