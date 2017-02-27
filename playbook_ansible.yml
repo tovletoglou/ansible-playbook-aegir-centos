@@ -5,7 +5,7 @@
     - name: Clone roles in the ansible playbook
       git:
         repo: "https://github.com/tovletoglou/{{ item }}.git"
-        dest: "/home/vagrant/ansible-playbook-aegir-centos/roles/{{ item }}"
+        dest: "{{ playbook_dir }}/roles/{{ item }}"
       with_items:
         - ansible-role-aegir-hosting-queued
         - ansible-role-aegir

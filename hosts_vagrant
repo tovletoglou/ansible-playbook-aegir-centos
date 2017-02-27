@@ -1,26 +1,26 @@
 [vagrant]
-ansible.dev
-galera1.dev
-galera2.dev
-galera3.dev
-haproxy.dev
-aegir.dev
+ansible.local
+galera1.local
+galera2.local
+galera3.local
+haproxy.local
+aegir.local
 
 [ansible]
-ansible.dev
+ansible.local
 
 [haproxy]
-haproxy.dev
+haproxy.local
 
 [galera]
-galera1.dev
-galera2.dev
-galera3.dev
+galera1.local
+galera2.local
+galera3.local
 
 [webserver]
-web1.dev
-web2.dev
-web3.dev
+web1.local
+web2.local
+web3.local
 
 [hostmaster]
-aegir.dev
+aegir.local
