@@ -12,37 +12,43 @@ Tested on CentOS 7
 
 1. Clone this project
 
-  ```
+  ```shell
   git clone https://github.com/tovletoglou/ansible-playbook-aegir-centos.git
   ```
 
-2. Run the playbook `playbook_ansible.yml`. It will get all the roles and put them in `roles/ansible-role-name` (TODO: add roles ansible galaxy).
+1. Run the playbook `playbook_ansible.yml`. It will get all the roles and put them in `roles/ansible-role-name` (TODO: add roles ansible galaxy).
 
-  ```
+  ```shell
   ansible-playbook -i hosts_vagrant playbook_ansible.yml
   ```
 
-3. Run the playbook `playbook_vagrant` to initialize the servers.
+1. Run the playbook `playbook_vagrant` to initialize the servers.
 
-  ```
+  ```shell
   ansible-playbook -i hosts_vagrant playbook_vagrant.yml
   ```
 
-4. Run the playbook `playbook_webserver` to setup the web servers.
+1. Run the playbook `playbook_webserver` to setup the web servers.
 
-  ```
+  ```shell
   ansible-playbook -i hosts_vagrant playbook_webserver.yml
   ```
 
-5. Run the playbook `playbook_hostmaster` to setup Aegir.
+1. Run the playbook `playbook_hostmaster` to setup Aegir.
 
-  ```
+  ```shell
   ansible-playbook -i hosts_vagrant playbook_hostmaster.yml
   ```
 
 If you like to run the playbooks against physical testing servers use the `hosts_test` using ansible vault.
 
+```shell
+ansible-vault decrypt hosts_test group_vars/test.yml
 ```
+
+or
+
+```shell
 ansible-vault decrypt hosts_test
 ansible-playbook -i hosts_test playbook_full_stack_aegir.yml --ask-vault-pass
 ```
