@@ -1,6 +1,6 @@
 ---
 
-- hosts: ansible
+- hosts: ansible:local_server
   tasks:
     - name: Clone roles in the ansible playbook
       git:
